@@ -1,0 +1,35 @@
+
+<div>
+<form #f = "ngForm">
+  <label>Number</label>
+  <input type="text" name="name" [(ngModel)] = "selectedAccounts.name">
+  <br>
+  <label>Amount</label>
+  <input type="text" name="amount" [(ngModel)] = "selectedAccounts.amount">
+  <br>
+  <input type="button" (click)="createOrUpdateAccounts(f)" value="Create or Update account">
+</form>
+</div>
+<br><br>
+<h1>User Account</h1>
+<div>
+
+  <table style="border:1; width:100; border-collapse: collapse;">
+    <tr>
+      <th>ID</th>
+      <th>User Name</th>
+      <th>Amount</th>
+      <th>Operations</th>
+
+    </tr>
+
+    <tr *ngFor="let accounts of account">
+      <td>{{ accounts.id }}</td>
+      <td>{{ accounts.name }}</td>
+      <td>{{ account.amount }}</td>
+      <td>
+        <button (click)="deleteaccounts(accounts.id)">Delete</button>
+        <button (click)="selectAccounts(accounts)">Update</button>
+      </td>
+    </tr>
+  </table>
